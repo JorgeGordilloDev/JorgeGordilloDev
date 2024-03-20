@@ -1,5 +1,4 @@
 ---
-// se ejecuta en el servidor o en build time <----
 const { title } = Astro.props;
 ---
 
@@ -8,13 +7,9 @@ const { title } = Astro.props;
   <slot />
 </section>
 
-<script>
-  // se ejecuta en el cliente <----
-</script>
-
 <style>
   section {
-    max-width: 700px;
+    max-width: 780px;
     margin: 0 auto 48px;
   }
 
@@ -25,7 +20,7 @@ const { title } = Astro.props;
     font-size: 1.5rem;
   }
 
-  @media (width <= 700px) {
+  @media (width <= 92230px) {
     section {
       margin-bottom: 38px;
     }

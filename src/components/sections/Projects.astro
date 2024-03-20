@@ -1,8 +1,8 @@
 ---
-import GitHub from "@/icons/GitHub.astro"
-import Section from "../Section.astro"
+import GitHub from "@/icons/GitHub.astro";
+import Section from "../Section.astro";
 
-import { projects } from "@cv"
+import { projects } from "@cv";
 ---
 
 <Section title="Proyectos">
@@ -15,9 +15,17 @@ import { projects } from "@cv"
               <article>
                 <header>
                   <h3>
-                    <a href={url} title={`Ver el proyecto ${name}`}>
-                      {name}
-                    </a>
+                    {url ? (
+                      <a
+                        href={url}
+                        target="_blank"
+                        title={`Ver el proyecto ${name}`}
+                      >
+                        {name}
+                      </a>
+                    ) : (
+                      name
+                    )}
                     {isActive && <span>•</span>}
                     {github && (
                       <a
@@ -34,12 +42,12 @@ import { projects } from "@cv"
                 </header>
                 <footer>
                   {highlights.map((highlight) => {
-                    return <span>{highlight}</span>
+                    return <span>{highlight}</span>;
                   })}
                 </footer>
               </article>
             </li>
-          )
+          );
         }
       )
     }
@@ -88,6 +96,10 @@ import { projects } from "@cv"
 
   article h3 span {
     color: rgb(0, 188, 47);
+    animation-name: flicker;
+    animation-duration: 3s;
+    animation-timing-function: ease-in;
+    animation-iteration-count: infinite;
   }
 
   footer {
@@ -110,6 +122,18 @@ import { projects } from "@cv"
     margin-left: 5px;
   }
 
+  @keyframes flicker {
+    0% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.25;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
   @media (width <= 700px) {
     ul {
       margin-inline: 0px;
@@ -119,6 +143,12 @@ import { projects } from "@cv"
       border: none;
       box-shadow: 0 1px 1px #f2f2f2;
       padding: 0 0 16px 0;
+    }
+  }
+
+  @media print {
+    article h3 span {
+      animation-name: none;
     }
   }
 </style>

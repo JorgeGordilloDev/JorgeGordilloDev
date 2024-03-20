@@ -14,73 +14,41 @@ const { name, label } = basics;
 ---
 
 <Layout title={`Portafolio de ${name} - ${label}`}>
-  <div class="resume">
-    <main>
+  <main>
+    <div class="cv">
       <Hero />
       <About />
       <Experience />
       <Education />
-      <Projects />
+      <div class="page-break">
+        <Projects />
+      </div>
       <Skills />
-    </main>
-  </div>
+    </div>
+  </main>
 
   <KeyboardManager />
 </Layout>
 
 <style>
-  :root {
-    --background: #eff2f9;
-    --color: #1e2532;
-    --facebook-color: #3b5998;
-    --twitter-color: #1da1f2;
-    --linkedin-color: #0077b5;
-    --youtube-color: #ff3d00;
-    --pinterest-color: #cd1f28;
-    --spotify-color: #1ed760;
-    --tiktok-color: #1e2532;
-  }
-
-  body {
-    background-color: var(--background);
-    font-family:
-      TT Commons,
-      system-ui,
-      -apple-system,
-      Segoe UI,
-      Roboto,
-      Ubuntu,
-      Cantarell,
-      Noto Sans,
-      sans-serif;
-    font-size: 19px;
-    font-weight: 400;
-    line-height: 24px;
-    min-height: 100vh;
-    overflow-x: hidden;
-    position: relative;
-  }
-  .resume {
-    padding-bottom: 40px;
-    padding-top: 40px;
-  }
   main {
-    padding: 40px 0;
-    margin: 0 auto;
-    width: 900px;
-    background-color: #fff;
-    border-radius: 5px;
-    --tw-shadow: 0 20px 25px -5px rgb(229, 233, 245),
-      0 8px 10px -6px rgb(229, 233, 245);
-    --tw-shadow-colored: 0 20px 25px -5px var(--tw-shadow-color),
-      0 8px 10px -6px var(--tw-shadow-color);
-    box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000),
-      var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+    width: 100%;
+    padding: 2rem 0;
+    background-color: #eff2f9;
   }
 
-  @media (width <= 700px) {
+  .cv {
+    background-color: #fff;
+    margin-right: auto;
+    margin-left: auto;
+    max-width: 920px;
+    padding: 2rem 4rem;
+    border-radius: 10px;
+  }
+
+  @media (width <= 920px) {
     main {
-      padding: 1rem;
+      padding: 0;
     }
   }
 </style>
